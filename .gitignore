@@ -1,34 +1,44 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+lib-cov
+*.seed
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+pids
+results
+tmp
 
-# testing
-/coverage
+# ignore logs
+logs
+*.log
 
-# next.js
-/.next/
-/out/
+# Coverage reports
+coverage
 
-# production
-/build
+# API keys and secrets
+.env*
+!.env.example
 
-# misc
+# Dependency directory
+node_modules
+
+# Editors
+.idea
+*.iml
+
+# OS metadata
 .DS_Store
-*.pem
+Thumbs.db
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Ignore built ts files
+dist/**/*
+build/**/*
 
-# local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# privacy data
+certificates
 
-# vercel
-.vercel
+# next
+.next/

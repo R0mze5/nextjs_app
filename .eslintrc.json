@@ -1,0 +1,85 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "jest": true,
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "standard",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/babel",
+    "prettier/react",
+    "prettier/standard",
+    "plugin:prettier/recommended",
+    "plugin:json/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "jsx-a11y",
+    "promise",
+    "import",
+    "prettier",
+    "react",
+    "react-hooks",
+    "jest"
+  ],
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "react/prop-types": 0
+  },
+  "overrides": [
+    {
+      "parser": "babel-eslint",
+      "files": ["./server/**/*.*"],
+      "extends": [
+        "eslint:recommended",
+        "standard",
+        "plugin:node/recommended",
+        "airbnb",
+        "prettier",
+        "prettier/babel",
+        "prettier/standard",
+        "plugin:prettier/recommended"
+      ],
+      "plugins": ["promise", "prettier"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      "files": ["./pages/**/*.*"],
+      "rules": {
+        "react/react-in-jsx-scope": "off"
+      }
+    }
+  ]
+}

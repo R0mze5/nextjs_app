@@ -1,0 +1,32 @@
+# Coverage reports
+coverage/*
+
+# Dependency directory
+node_modules/*
+
+
+# Ignore built files
+dist/*
+build/*
+
+# API keys and secrets
+.env*
+!.env.example
+
+# git
+.git
+
+# ignore logs
+logs
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# privacy data
+certificates
+
+
+# next
+.next/

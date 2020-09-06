@@ -1,0 +1,14 @@
+# Coverage reports
+coverage/*
+
+# Dependency directory
+node_modules/*
+
+
+# Ignore built files
+dist/*
+build/*
+
+# Lock files
+package-lock.json
+yarn.lock

@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nodeserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodeserver
+    container_name: nodeserver
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - '$PORT:$PORT'
+  #   links:
+  #     - mongodb
+  # mongodb:
+  #   image: mongo:4.2.5
+  #   container_name: mongo
+  #   restart: unless-stopped
+  #   env_file: .env
