@@ -129,6 +129,8 @@ const Home: NextPage<Props> = (props) => {
   );
 };
 
+Home.whyDidYouRender = true;
+
 // example of getInitialProps
 // Home.getInitialProps = async (ctx: NextPageContext) => {
 //   const { store } = ctx;
