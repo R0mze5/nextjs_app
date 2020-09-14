@@ -1,3 +1,4 @@
+import React from "react";
 import App, { AppInitialProps, AppContext } from "next/app";
 import { ConnectedRouter } from "connected-next-router";
 
@@ -11,6 +12,12 @@ import { wrapper } from "../client/redux/store";
 import { tvmazeActions } from "../client/redux/tvmaze";
 import { END } from "redux-saga";
 import { SagaStore } from "../typings/store";
+
+import whyDidYouRender from "@welldone-software/why-did-you-render";
+
+if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
+  whyDidYouRender(React, { trackAllPureComponents: true });
+}
 
 export class MyApp extends App<AppInitialProps> {
   public static async getInitialProps({
@@ -52,6 +59,8 @@ export class MyApp extends App<AppInitialProps> {
       pageProps,
     };
   }
+
+  // static whyDidYouRender = true;
 
   componentDidMount() {
     register();
