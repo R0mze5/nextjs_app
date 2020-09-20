@@ -13,13 +13,19 @@ import { tvmazeActions } from "../client/redux/tvmaze";
 import { END } from "redux-saga";
 import { SagaStore } from "../typings/store";
 
+import { GlobalStyles, theme, ThemeProvider, ThemeTypes } from "../theme";
+
 import whyDidYouRender from "@welldone-software/why-did-you-render";
 
 if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
   whyDidYouRender(React, { trackAllPureComponents: true });
 }
 
-export class MyApp extends App<AppInitialProps> {
+interface IState {
+  selectedTheme: keyof typeof ThemeTypes;
+}
+
+export class MyApp extends App<AppInitialProps, null, IState> {
   public static async getInitialProps({
     Component,
     ctx,
@@ -62,6 +68,10 @@ export class MyApp extends App<AppInitialProps> {
 
   // static whyDidYouRender = true;
 
+  state = {
+    selectedTheme: ThemeTypes.darkTheme,
+  };
+
   componentDidMount() {
     register();
   }
@@ -72,16 +82,22 @@ export class MyApp extends App<AppInitialProps> {
 
   render() {
     const { Component, pageProps } = this.props;
+    const { selectedTheme } = this.state;
 
     return (
       <ConnectedRouter>
-        <NextNprogress
-          color="#29D"
-          startPosition={0.3}
-          stopDelayMs={200}
-          height={3}
-        />
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme[selectedTheme]}>
+          <>
+            <GlobalStyles />
+            <NextNprogress
+              color="#29D"
+              startPosition={0.3}
+              stopDelayMs={200}
+              height={3}
+            />
+            <Component {...pageProps} />
+          </>
+        </ThemeProvider>
       </ConnectedRouter>
     );
   }
